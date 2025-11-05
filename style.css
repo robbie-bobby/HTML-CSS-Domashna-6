@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    color: wheat;
+    background-color: #533483;
+}
+
+html {
+    background: linear-gradient(0deg, rgb(0, 0, 72), black);
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    grid-area: header;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(100, 100, 255, 0.2);
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(100, 100, 255, 0.5);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+nav {
+    grid-area: nav;
+    background: linear-gradient(135deg, #0f3460, #1a1a2e);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(100, 100, 255, 0.2);
+}
+
+nav h2 {
+    color: #7eb6ff;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 10px;
+}
+
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    border: 1px solid rgba(100, 100, 255, 0.1);
+}
+
+nav a:hover {
+    background-color: rgba(100, 100, 255, 0.2);
+    transform: translateX(5px);
+}
+
+main {
+    grid-area: main;
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(100, 100, 255, 0.2);
+}
+
+main h2 {
+    color: #7eb6ff;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+main h3 {
+    color: #a8c6ff;
+    margin: 25px 0 15px;
+    font-size: 1.4rem;
+}
+
+.grid-example {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.grid-item {
+    background: linear-gradient(135deg, #0f3460, #533483);
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s;
+    border: 1px solid rgba(100, 100, 255, 0.3);
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(150deg, #0f3460, #533483);
+    box-shadow: 0 5px 15px rgba(100, 100, 255, 0.3);
+}
+
+aside {
+    grid-area: aside;
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(100, 100, 255, 0.2);
+}
+
+aside h2 {
+    color: #7eb6ff;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+aside p {
+    margin-bottom: 15px;
+}
+
+aside ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+aside li {
+    margin-bottom: 8px;
+}
+
+footer {
+    grid-area: footer;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(100, 100, 255, 0.2);
+}
+
+header, main, nav, aside, footer {
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    nav li {
+        margin-bottom: 0;
+        flex: 1;
+        min-width: 120px;
+    }
+}
